@@ -195,8 +195,8 @@ export function QuoteForm() {
           className="grid grid-cols-1 gap-2"
         >
           {[
-            { v: "clean_seal", l: "One-time tune-up (Clean & Seal)" },
-            { v: "gutter_guard", l: "Permanent solution (Gutter Guard Installation)" },
+            { v: "clean_seal", l: "One-time tune-up (Clean, Seal & Reinforce)" },
+            { v: "gutter_guard", l: "Permanent solution (Gutter Guard Installation — includes free CSR)" },
             { v: "not_sure", l: "Not sure — need a recommendation" },
           ].map((o) => (
             <label
