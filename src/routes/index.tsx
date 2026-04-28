@@ -90,8 +90,8 @@ function Index() {
   return (
     <div className="min-h-screen bg-background text-foreground font-sans antialiased">
       {/* Header */}
-      <header className="fixed top-0 inset-x-0 z-40 bg-background/85 backdrop-blur-md border-b border-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <header className="fixed top-4 inset-x-0 z-40 px-4">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between rounded-full bg-background/85 backdrop-blur-md border border-border shadow-card" style={{ boxShadow: "var(--shadow-card)" }}>
           <a href="#top" className="flex items-center gap-2">
             <div className="h-9 w-9 rounded-lg bg-primary text-primary-foreground flex items-center justify-center font-bold">
               A
