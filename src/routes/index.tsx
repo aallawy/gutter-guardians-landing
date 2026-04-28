@@ -64,8 +64,8 @@ function Index() {
       icon: Shield,
       title: "Gutter Protection Installation",
       description:
-        "Premium guard solutions engineered to eliminate debris buildup, reduce maintenance, and extend the life of your gutters.",
-      points: ["Premium mesh guards", "Lifetime performance", "Debris-free flow"],
+        "Premium guard solutions engineered to eliminate buildup, reduce maintenance, and extend the life of your gutters.",
+      points: ["Lifetime performance", "Debris-free flow"],
     },
     {
       icon: Wrench,
