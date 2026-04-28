@@ -16,6 +16,7 @@ import beforeAfter from "@/assets/before-after-1.jpg";
 import gutterGuard from "@/assets/gutter-guard.jpg";
 import downspout from "@/assets/downspout.jpg";
 import cleaning from "@/assets/cleaning.jpg";
+import { QuoteForm } from "@/components/QuoteForm";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -284,32 +285,29 @@ function Index() {
         </div>
       </section>
 
-      {/* Contact CTA */}
+      {/* Contact / Quote Form */}
       <section id="contact" className="py-20 md:py-28 relative overflow-hidden" style={{ background: "var(--gradient-hero)" }}>
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight">
-            Get your free quote today
-          </h2>
-          <p className="mt-5 text-lg md:text-xl text-white/85 max-w-2xl mx-auto">
-            Tell us about your home — we'll respond fast with honest pricing and a clear scope of work.
-          </p>
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center text-white">
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight">
+              Get your free quote today
+            </h2>
+            <p className="mt-5 text-lg md:text-xl text-white/85 max-w-2xl mx-auto">
+              Tell us about your home — we'll respond within 24 hours with honest pricing and a clear scope of work.
+            </p>
+          </div>
 
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 max-w-2xl mx-auto">
-            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-              <Button size="lg" className="w-full h-16 text-base font-semibold bg-whatsapp text-whatsapp-foreground hover:bg-whatsapp/90">
-                <WhatsAppIcon className="h-6 w-6" /> WhatsApp Us
-              </Button>
-            </a>
-            <a href={`mailto:${EMAIL}`}>
-              <Button size="lg" className="w-full h-16 text-base font-semibold bg-white text-primary hover:bg-white/90">
-                <Mail className="h-5 w-5" /> Email Us
-              </Button>
-            </a>
+          <div className="mt-10">
+            <QuoteForm />
           </div>
 
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6 text-white/90">
             <a href={`mailto:${EMAIL}`} className="flex items-center gap-2 hover:text-white transition-colors">
               <Mail className="h-5 w-5" /> {EMAIL}
+            </a>
+            <span className="hidden sm:block text-white/30">•</span>
+            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-white transition-colors">
+              <WhatsAppIcon className="h-5 w-5" /> WhatsApp
             </a>
             <span className="hidden sm:block text-white/30">•</span>
             <a href="tel:+16475693231" className="flex items-center gap-2 hover:text-white transition-colors">
