@@ -64,7 +64,7 @@ function Index() {
       icon: Shield,
       title: "Gutter Protection Installation",
       description:
-        "Premium guard solutions engineered to eliminate buildup, reduce maintenance, and extend the life of your gutters.",
+        "Heavy-duty aluminum micro-mesh gutter guards built to withstand the elements and keep your gutters debris-free for life.",
       points: ["Lifetime performance", "Debris-free flow"],
     },
     {
