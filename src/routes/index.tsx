@@ -16,6 +16,7 @@ import beforeAfter from "@/assets/before-after-1.jpg";
 import gutterGuard from "@/assets/gutter-guard.jpg";
 import downspout from "@/assets/downspout.jpg";
 import cleaning from "@/assets/cleaning.jpg";
+import { QuoteForm } from "@/components/QuoteForm";
 
 export const Route = createFileRoute("/")({
   component: Index,
