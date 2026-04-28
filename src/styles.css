@@ -66,11 +66,11 @@
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
+  --background: oklch(0.985 0.005 250);
   --foreground: oklch(0.22 0.03 250);
-  --card: oklch(1 0 0);
+  --card: oklch(0.99 0.004 250);
   --card-foreground: oklch(0.22 0.03 250);
-  --popover: oklch(1 0 0);
+  --popover: oklch(0.99 0.004 250);
   --popover-foreground: oklch(0.22 0.03 250);
   /* Royal Blue (lighter) */
   --primary: oklch(0.62 0.17 258);
