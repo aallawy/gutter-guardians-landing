@@ -46,6 +46,9 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
   --color-ring-offset-background: var(--background);
+  --color-whatsapp: var(--whatsapp);
+  --color-whatsapp-foreground: var(--whatsapp-foreground);
+  --color-primary-deep: var(--primary-deep);
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
   --color-chart-3: var(--chart-3);
@@ -64,19 +67,30 @@
 :root {
   --radius: 0.625rem;
   --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
+  --foreground: oklch(0.22 0.03 250);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
+  --card-foreground: oklch(0.22 0.03 250);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
+  --popover-foreground: oklch(0.22 0.03 250);
+  /* Royal Blue */
+  --primary: oklch(0.45 0.21 264);
+  --primary-foreground: oklch(0.99 0 0);
+  --primary-deep: oklch(0.36 0.20 266);
+  /* Slate Grey */
+  --secondary: oklch(0.42 0.03 250);
+  --secondary-foreground: oklch(0.99 0 0);
+  --muted: oklch(0.96 0.008 250);
+  --muted-foreground: oklch(0.45 0.025 250);
+  --accent: oklch(0.94 0.025 255);
+  --accent-foreground: oklch(0.36 0.20 266);
+  /* WhatsApp green */
+  --whatsapp: oklch(0.68 0.17 150);
+  --whatsapp-foreground: oklch(0.99 0 0);
+  --gradient-hero: linear-gradient(135deg, oklch(0.36 0.20 266) 0%, oklch(0.45 0.21 264) 60%, oklch(0.55 0.18 255) 100%);
+  --gradient-cta: linear-gradient(135deg, oklch(0.45 0.21 264), oklch(0.36 0.20 266));
+  --shadow-elegant: 0 20px 50px -20px oklch(0.36 0.20 266 / 0.35);
+  --shadow-card: 0 8px 30px -12px oklch(0.22 0.03 250 / 0.18);
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.984 0.003 247.858);
   --border: oklch(0.929 0.013 255.508);
