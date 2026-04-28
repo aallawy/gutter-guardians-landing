@@ -72,22 +72,22 @@
   --card-foreground: oklch(0.22 0.03 250);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.22 0.03 250);
-  /* Royal Blue */
-  --primary: oklch(0.45 0.21 264);
+  /* Royal Blue (lighter) */
+  --primary: oklch(0.62 0.17 258);
   --primary-foreground: oklch(0.99 0 0);
-  --primary-deep: oklch(0.36 0.20 266);
+  --primary-deep: oklch(0.52 0.18 260);
   /* Slate Grey */
   --secondary: oklch(0.42 0.03 250);
   --secondary-foreground: oklch(0.99 0 0);
   --muted: oklch(0.96 0.008 250);
   --muted-foreground: oklch(0.45 0.025 250);
   --accent: oklch(0.94 0.025 255);
-  --accent-foreground: oklch(0.36 0.20 266);
+  --accent-foreground: oklch(0.52 0.18 260);
   /* WhatsApp green */
   --whatsapp: oklch(0.68 0.17 150);
   --whatsapp-foreground: oklch(0.99 0 0);
-  --gradient-hero: linear-gradient(135deg, oklch(0.36 0.20 266) 0%, oklch(0.45 0.21 264) 60%, oklch(0.55 0.18 255) 100%);
-  --gradient-cta: linear-gradient(135deg, oklch(0.45 0.21 264), oklch(0.36 0.20 266));
+  --gradient-hero: linear-gradient(135deg, oklch(0.52 0.18 260) 0%, oklch(0.62 0.17 258) 60%, oklch(0.72 0.14 250) 100%);
+  --gradient-cta: linear-gradient(135deg, oklch(0.62 0.17 258), oklch(0.52 0.18 260));
   --shadow-elegant: 0 20px 50px -20px oklch(0.36 0.20 266 / 0.35);
   --shadow-card: 0 8px 30px -12px oklch(0.22 0.03 250 / 0.18);
   --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
