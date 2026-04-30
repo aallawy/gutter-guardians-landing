@@ -12,7 +12,7 @@ export default defineConfig({
     },
   },
   build: {
-    outDir: "dist",
+    outDir: "docs",
     emptyOutDir: true,
   },
   base: "./", // Works for GitHub Pages subdirectory
