@@ -29,7 +29,7 @@ function WhatsAppIcon({ className }: { className?: string }) {
   );
 }
 
-function Index() {
+export function Index() {
   const services = [
     {
       icon: Droplets,
@@ -49,7 +49,7 @@ function Index() {
       icon: Wrench,
       title: "Downspouts Repair & Installation",
       description:
-        "Expertly installed downspouts that divert water away from your foundation — protecting basements and landscaping year-round.",
+        "Expertly installed downspouts that divert water away from your foundation - protecting basements and landscaping year-round.",
       points: ["Foundation safety", "Proper diversion", "Seamless install"],
     },
   ];
@@ -150,7 +150,7 @@ function Index() {
               Complete gutter care, done right
             </h2>
             <p className="mt-4 text-muted-foreground text-lg">
-              Three specialised services that keep water moving away from your home — the way it should.
+              Three specialised services that keep water moving away from your home - the way it should.
             </p>
           </div>
 
@@ -188,7 +188,7 @@ function Index() {
               Real results on real Toronto homes
             </h2>
             <p className="mt-4 text-muted-foreground text-lg">
-              Detached brick and siding houses across the GTA — restored, protected, and ready for every season.
+              Detached brick and siding houses across the GTA - restored, protected, and ready for every season.
             </p>
           </div>
 
@@ -234,7 +234,7 @@ function Index() {
             </h2>
             <p className="mt-4 text-muted-foreground text-lg leading-relaxed">
               From the lakeshore to the 905, our crews cover every corner of the Greater Toronto Area.
-              Same-week scheduling and on-time arrivals — guaranteed.
+              Same-week scheduling and on-time arrivals - guaranteed.
             </p>
             <div className="mt-8 flex flex-wrap gap-2">
               {areas.map((a) => (
@@ -271,7 +271,7 @@ function Index() {
               Get your free quote today
             </h2>
             <p className="mt-5 text-lg md:text-xl text-white/85 max-w-2xl mx-auto">
-              Tell us about your home — we'll respond within 24 hours with honest pricing and a clear scope of work.
+              Tell us about your home - we'll respond within 24 hours with honest pricing and a clear scope of work.
             </p>
           </div>
 
@@ -283,11 +283,11 @@ function Index() {
             <a href={`mailto:${EMAIL}`} className="flex items-center gap-2 hover:text-white transition-colors">
               <Mail className="h-5 w-5" /> {EMAIL}
             </a>
-            <span className="hidden sm:block text-white/30">•</span>
+            <span className="hidden sm:block text-white/30">|</span>
             <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-white transition-colors">
               <WhatsAppIcon className="h-5 w-5" /> WhatsApp
             </a>
-            <span className="hidden sm:block text-white/30">•</span>
+            <span className="hidden sm:block text-white/30">|</span>
             <a href="tel:+16475693231" className="flex items-center gap-2 hover:text-white transition-colors">
               <Phone className="h-5 w-5" /> {PHONE_DISPLAY}
             </a>
@@ -301,9 +301,9 @@ function Index() {
           <div className="flex items-center gap-2">
             <div className="h-8 w-8 rounded-md bg-white/10 flex items-center justify-center font-bold">A</div>
             <span className="font-semibold">Allawy Solutions</span>
-            <span className="text-white/60">— Toronto & GTA</span>
+            <span className="text-white/60">- Toronto & GTA</span>
           </div>
-          <div className="text-white/70">© {new Date().getFullYear()} Allawy Solutions. All rights reserved.</div>
+          <div className="text-white/70">(c) {new Date().getFullYear()} Allawy Solutions. All rights reserved.</div>
         </div>
       </footer>
 
