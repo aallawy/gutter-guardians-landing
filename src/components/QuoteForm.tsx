@@ -1,12 +1,11 @@
 import { useState } from "react";
 import { z } from "zod";
-import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { CheckCircle2, Loader2, Send } from "lucide-react";
+import { CheckCircle2, Loader2, Send, Mail, Phone } from "lucide-react";
 import { toast } from "sonner";
 
 const quoteSchema = z.object({
@@ -56,37 +55,15 @@ export function QuoteForm() {
       return;
     }
 
-    try {
-      const { error } = await supabase.from("quote_requests").insert({
-        home_stories: parsed.data.home_stories,
-        home_size: parsed.data.home_size,
-        gutter_issues: parsed.data.gutter_issues,
-        service_interest: parsed.data.service_interest,
-        downspout_issues: parsed.data.downspout_issues,
-        name: parsed.data.name,
-        address: parsed.data.address,
-        phone: parsed.data.phone,
-        email: parsed.data.email || null,
-      });
-
-      if (error) throw error;
-
-      // Trigger email notification (fire-and-forget; submission already saved)
-      fetch("/api/public/quote-notify", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(parsed.data),
-      }).catch(() => {
-        // Silent: lead is already in DB
-      });
-
-      setSuccess(true);
-    } catch (err) {
-      console.error("Quote submission failed", err);
-      toast.error("Something went wrong. Please try again or call us directly.");
-    } finally {
-      setSubmitting(false);
-    }
+    // For static hosting: open mailto with form data
+    const subject = encodeURIComponent(`Quote Request - ${parsed.data.name}`);
+    const body = encodeURIComponent(
+      `Name: ${parsed.data.name}\nAddress: ${parsed.data.address}\nPhone: ${parsed.data.phone}\nEmail: ${parsed.data.email}\n\nHome Size: ${parsed.data.home_size}\nStories: ${parsed.data.home_stories}\nGutter Issues: ${parsed.data.gutter_issues}\nService Interest: ${parsed.data.service_interest}\nDownspout Issues: ${parsed.data.downspout_issues}`
+    );
+    
+    window.location.href = `mailto:allawysolutions@gmail.com?subject=${subject}&body=${body}`;
+    setSuccess(true);
+    setSubmitting(false);
   };
 
   if (success) {

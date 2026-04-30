@@ -1,4 +1,3 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import {
   Droplets,
@@ -17,27 +16,6 @@ import gutterGuard from "@/assets/gutter-guard.jpg";
 import downspout from "@/assets/downspout.jpg";
 import cleaning from "@/assets/cleaning.jpg";
 import { QuoteForm } from "@/components/QuoteForm";
-
-export const Route = createFileRoute("/")({
-  component: Index,
-  head: () => ({
-    meta: [
-      { title: "Allawy Solutions | Expert Gutter Services in Toronto & GTA" },
-      {
-        name: "description",
-        content:
-          "Professional gutter cleaning, sealing, guard installation and downspout repair across Toronto and the GTA. Protect your home — request a free quote today.",
-      },
-      { property: "og:title", content: "Allawy Solutions — Toronto Gutter Specialists" },
-      {
-        property: "og:description",
-        content:
-          "Precision gutter cleaning, sealing, and premium guard installation across Toronto & GTA.",
-      },
-      { property: "og:type", content: "website" },
-    ],
-  }),
-});
 
 const WHATSAPP_URL = "https://wa.me/16475693231";
 const PHONE_DISPLAY = "+1 (647) 569-3231";
