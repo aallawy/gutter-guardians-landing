@@ -22,20 +22,3 @@ export const router = createBrowserRouter([
 export function Router() {
   return <RouterProvider router={router} />;
 }
-        </div>
-      </div>
-    </div>
-  );
-}
-
-export const getRouter = () => {
-  const router = createRouter({
-    routeTree,
-    context: {},
-    scrollRestoration: true,
-    defaultPreloadStaleTime: 0,
-    defaultErrorComponent: DefaultErrorComponent,
-  });
-
-  return router;
-};
