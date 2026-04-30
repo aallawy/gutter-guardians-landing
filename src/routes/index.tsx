@@ -88,10 +88,7 @@ export function Index() {
       <header className="fixed top-4 inset-x-0 z-40 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="px-4 sm:px-6 h-14 flex items-center justify-between rounded-full bg-background/85 backdrop-blur-md border border-border shadow-card" style={{ boxShadow: "var(--shadow-card)" }}>
-            <a href="#top" className="flex items-center gap-2" onClick={handleMobileMenuClose}>
-              <div className="h-9 w-9 rounded-lg bg-primary text-primary-foreground flex items-center justify-center font-bold">
-                A
-              </div>
+            <a href="#top" className="flex items-center" onClick={handleMobileMenuClose}>
               <div className="leading-tight">
                 <div className="font-bold text-foreground">Allawy Solutions</div>
                 <div className="text-[11px] text-muted-foreground hidden sm:block">Toronto & GTA Gutter Experts</div>
@@ -356,7 +353,6 @@ export function Index() {
       <footer className="bg-secondary text-secondary-foreground py-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm">
           <div className="flex items-center gap-2">
-            <div className="h-8 w-8 rounded-md bg-white/10 flex items-center justify-center font-bold">A</div>
             <span className="font-semibold">Allawy Solutions</span>
             <span className="text-white/60">- Toronto & GTA</span>
           </div>
