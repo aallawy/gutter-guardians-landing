@@ -158,7 +158,7 @@ export function Index() {
             height={1280}
             className="h-full w-full object-cover"
           />
-          <div className="absolute inset-0" style={{ background: "var(--gradient-hero)", opacity: 0.88 }} />
+          <div className="absolute inset-0" style={{ background: "var(--gradient-hero)", opacity: 0.68 }} />
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-36 lg:py-44">
