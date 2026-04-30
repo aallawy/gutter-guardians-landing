@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Droplets,
@@ -9,6 +10,8 @@ import {
   Phone,
   ArrowRight,
   Sparkles,
+  Menu,
+  X,
 } from "lucide-react";
 import heroHouse from "@/assets/hero-house.jpg";
 import beforeAfter from "@/assets/before-after-1.jpg";
@@ -30,6 +33,8 @@ function WhatsAppIcon({ className }: { className?: string }) {
 }
 
 export function Index() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   const services = [
     {
       icon: Droplets,
@@ -66,36 +71,88 @@ export function Index() {
     "Brampton", "Vaughan", "Markham", "Richmond Hill", "Oakville", "Burlington", "Pickering",
   ];
 
+  const navigationItems = [
+    { href: "#services", label: "Services" },
+    { href: "#gallery", label: "Gallery" },
+    { href: "#areas", label: "Service Area" },
+    { href: "#contact", label: "Contact" },
+  ];
+
+  const handleMobileMenuClose = () => {
+    setMobileMenuOpen(false);
+  };
+
   return (
-    <div className="min-h-screen bg-background text-foreground font-sans antialiased">
+    <div className="min-h-screen bg-background pb-[calc(6rem+env(safe-area-inset-bottom))] text-foreground font-sans antialiased md:pb-0">
       {/* Header */}
       <header className="fixed top-4 inset-x-0 z-40 px-4">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between rounded-full bg-background/85 backdrop-blur-md border border-border shadow-card" style={{ boxShadow: "var(--shadow-card)" }}>
-          <a href="#top" className="flex items-center gap-2">
-            <div className="h-9 w-9 rounded-lg bg-primary text-primary-foreground flex items-center justify-center font-bold">
-              A
+        <div className="max-w-6xl mx-auto">
+          <div className="px-4 sm:px-6 h-14 flex items-center justify-between rounded-full bg-background/85 backdrop-blur-md border border-border shadow-card" style={{ boxShadow: "var(--shadow-card)" }}>
+            <a href="#top" className="flex items-center gap-2" onClick={handleMobileMenuClose}>
+              <div className="h-9 w-9 rounded-lg bg-primary text-primary-foreground flex items-center justify-center font-bold">
+                A
+              </div>
+              <div className="leading-tight">
+                <div className="font-bold text-foreground">Allawy Solutions</div>
+                <div className="text-[11px] text-muted-foreground hidden sm:block">Toronto & GTA Gutter Experts</div>
+              </div>
+            </a>
+            <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-secondary">
+              {navigationItems.map((item) => (
+                <a key={item.href} href={item.href} className="hover:text-primary transition-colors">
+                  {item.label}
+                </a>
+              ))}
+            </nav>
+            <div className="flex items-center gap-2">
+              <a href={`tel:+16475693231`} className="hidden sm:inline-flex">
+                <Button size="sm" variant="outline" className="border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground">
+                  <Phone className="h-4 w-4" /> Call Now
+                </Button>
+              </a>
+              <button
+                type="button"
+                aria-expanded={mobileMenuOpen}
+                aria-controls="mobile-navigation"
+                aria-label={mobileMenuOpen ? "Close mobile navigation" : "Open mobile navigation"}
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-background text-foreground transition-colors hover:bg-muted md:hidden"
+                onClick={() => setMobileMenuOpen((open) => !open)}
+              >
+                {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              </button>
             </div>
-            <div className="leading-tight">
-              <div className="font-bold text-foreground">Allawy Solutions</div>
-              <div className="text-[11px] text-muted-foreground hidden sm:block">Toronto & GTA Gutter Experts</div>
+          </div>
+
+          <div
+            id="mobile-navigation"
+            className={`overflow-hidden rounded-3xl border border-border bg-background/95 backdrop-blur-md transition-all duration-300 md:hidden ${
+              mobileMenuOpen ? "mt-3 max-h-96 p-4 opacity-100" : "mt-0 max-h-0 p-0 opacity-0 pointer-events-none"
+            }`}
+            style={{ boxShadow: "var(--shadow-card)" }}
+          >
+            <div className="mobile-navigation-group flex flex-col gap-2">
+              {navigationItems.map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className="rounded-2xl px-4 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-muted"
+                  onClick={handleMobileMenuClose}
+                >
+                  {item.label}
+                </a>
+              ))}
+              <a href="tel:+16475693231" className="pt-2" onClick={handleMobileMenuClose}>
+                <Button className="h-12 w-full font-semibold bg-primary text-primary-foreground hover:bg-primary-deep">
+                  <Phone className="h-5 w-5" /> Call Now
+                </Button>
+              </a>
             </div>
-          </a>
-          <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-secondary">
-            <a href="#services" className="hover:text-primary transition-colors">Services</a>
-            <a href="#gallery" className="hover:text-primary transition-colors">Gallery</a>
-            <a href="#areas" className="hover:text-primary transition-colors">Service Area</a>
-            <a href="#contact" className="hover:text-primary transition-colors">Contact</a>
-          </nav>
-          <a href={`tel:+16475693231`} className="hidden sm:inline-flex">
-            <Button size="sm" variant="outline" className="border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground">
-              <Phone className="h-4 w-4" /> Call Now
-            </Button>
-          </a>
+          </div>
         </div>
       </header>
 
       {/* Hero */}
-      <section id="top" className="relative pt-16 overflow-hidden">
+      <section id="top" className="relative scroll-mt-24 overflow-hidden pt-16 md:scroll-mt-28">
         <div className="absolute inset-0">
           <img
             src={heroHouse}
@@ -142,7 +199,7 @@ export function Index() {
       </section>
 
       {/* Services */}
-      <section id="services" className="py-20 md:py-28 bg-background">
+      <section id="services" className="scroll-mt-24 bg-background py-20 md:scroll-mt-28 md:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mx-auto text-center">
             <div className="text-sm font-semibold uppercase tracking-wider text-primary">Our Core Services</div>
@@ -180,7 +237,7 @@ export function Index() {
       </section>
 
       {/* Gallery */}
-      <section id="gallery" className="py-20 md:py-28 bg-muted">
+      <section id="gallery" className="scroll-mt-24 bg-muted py-20 md:scroll-mt-28 md:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mx-auto text-center">
             <div className="text-sm font-semibold uppercase tracking-wider text-primary">Before & After</div>
@@ -225,7 +282,7 @@ export function Index() {
       </section>
 
       {/* Service Area */}
-      <section id="areas" className="py-20 md:py-28 bg-background">
+      <section id="areas" className="scroll-mt-24 bg-background py-20 md:scroll-mt-28 md:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
           <div>
             <div className="text-sm font-semibold uppercase tracking-wider text-primary">Service Area</div>
@@ -264,7 +321,7 @@ export function Index() {
       </section>
 
       {/* Contact / Quote Form */}
-      <section id="contact" className="py-20 md:py-28 relative overflow-hidden" style={{ background: "var(--gradient-hero)" }}>
+      <section id="contact" className="relative scroll-mt-24 overflow-hidden py-20 md:scroll-mt-28 md:py-28" style={{ background: "var(--gradient-hero)" }}>
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center text-white">
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight">
