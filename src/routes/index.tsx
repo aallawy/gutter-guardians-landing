@@ -23,6 +23,7 @@ import { QuoteForm } from "@/components/QuoteForm";
 const WHATSAPP_URL = "https://wa.me/16475693231";
 const PHONE_DISPLAY = "+1 (647) 569-3231";
 const EMAIL = "allawysolutions@gmail.com";
+const GOOGLE_MAPS_EMBED_URL = "https://www.google.com/maps?q=Toronto,+Ontario,+Canada&z=9&output=embed";
 
 function WhatsAppIcon({ className }: { className?: string }) {
   return (
@@ -313,17 +314,28 @@ export function Index() {
               ))}
             </div>
           </div>
-          <div className="relative rounded-3xl overflow-hidden border border-border" style={{ boxShadow: "var(--shadow-elegant)" }}>
-            <div className="aspect-[4/3] relative" style={{ background: "var(--gradient-hero)" }}>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center text-primary-foreground p-8">
-                  <MapPin className="h-16 w-16 mx-auto mb-4 opacity-80" />
-                  <div className="text-3xl font-bold">Toronto & GTA</div>
-                  <div className="mt-2 text-primary-foreground/80">Coverage radius 60+ km</div>
+          <div className="relative rounded-3xl overflow-hidden border border-border bg-card" style={{ boxShadow: "var(--shadow-elegant)" }}>
+            <div className="aspect-[4/3] relative">
+              <iframe
+                id="service-area-map"
+                className="absolute inset-0 h-full w-full"
+                src={GOOGLE_MAPS_EMBED_URL}
+                title="Google Map showing Toronto and the Greater Toronto Area service coverage"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+              />
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 p-4 sm:p-5">
+                <div className="inline-flex items-center gap-3 rounded-2xl border border-white/35 bg-secondary/80 px-4 py-3 text-secondary-foreground backdrop-blur-md">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white/15">
+                    <MapPin className="h-5 w-5" />
+                  </div>
+                  <div className="leading-tight">
+                    <div className="font-semibold">Toronto & GTA</div>
+                    <div className="text-sm text-secondary-foreground/80">Coverage radius 60+ km</div>
+                  </div>
                 </div>
               </div>
-              <div className="absolute -top-12 -right-12 h-48 w-48 rounded-full bg-white/10" />
-              <div className="absolute -bottom-12 -left-12 h-64 w-64 rounded-full bg-white/5" />
             </div>
           </div>
         </div>
