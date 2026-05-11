@@ -97,7 +97,7 @@ export function Index() {
                 <div className="text-[11px] text-muted-foreground hidden sm:block">Toronto & GTA Gutter Experts</div>
               </div>
             </a>
-            <nav className="hidden md:flex items-center gap-5 text-sm font-semibold">
+            <nav className="hidden md:ml-3 md:flex items-center gap-5 text-sm font-semibold">
               {navigationItems.map((item) => (
                 <a
                   key={item.href}
