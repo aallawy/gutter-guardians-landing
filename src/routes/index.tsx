@@ -61,7 +61,7 @@ export function Index() {
 
   const gallery = [
     { src: beforeAfter, title: "Before & After Cleaning", caption: "Clogged to flowing in one visit" },
-    { src: gutterGuard, title: "Premium Guard Install", caption: "Mesh protection on grey siding" },
+    { src: gutterGuard, title: "Premium Guard Install", caption: "Protection on grey siding" },
     { src: downspout, title: "Downspout Replacement", caption: "Clean diversion away from brick foundation" },
     { src: cleaning, title: "Professional Service", caption: "Insured technicians, every job" },
   ];
