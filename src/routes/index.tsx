@@ -83,27 +83,34 @@ export function Index() {
   };
 
   return (
-    <div className="min-h-screen bg-background pb-[calc(6rem+env(safe-area-inset-bottom))] text-foreground font-sans antialiased md:pb-0">
+      <div className="min-h-screen bg-background pb-[calc(6rem+env(safe-area-inset-bottom))] text-foreground font-sans antialiased md:pb-0">
       {/* Header */}
       <header className="fixed top-4 inset-x-0 z-40 px-4">
-        <div className="max-w-6xl mx-auto">
-          <div className="px-4 sm:px-6 h-14 flex items-center justify-between rounded-full bg-background/85 backdrop-blur-md border border-border shadow-card" style={{ boxShadow: "var(--shadow-card)" }}>
-            <a href="#top" className="flex items-center" onClick={handleMobileMenuClose}>
+        <div className="mx-auto w-full md:w-fit">
+          <div
+            className="flex h-14 w-full items-center justify-between gap-3 rounded-full border border-border bg-background/85 px-4 sm:px-5 backdrop-blur-md md:w-auto md:justify-start md:gap-5"
+            style={{ boxShadow: "var(--shadow-card)" }}
+          >
+            <a href="#top" className="flex shrink-0 items-center" onClick={handleMobileMenuClose}>
               <div className="leading-tight">
                 <div className="font-bold text-foreground">Allawy Solutions</div>
                 <div className="text-[11px] text-muted-foreground hidden sm:block">Toronto & GTA Gutter Experts</div>
               </div>
             </a>
-            <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-secondary">
+            <nav className="hidden md:flex items-center gap-5 text-sm font-medium text-secondary">
               {navigationItems.map((item) => (
                 <a key={item.href} href={item.href} className="hover:text-primary transition-colors">
                   {item.label}
                 </a>
               ))}
             </nav>
-            <div className="flex items-center gap-2">
+            <div className="flex shrink-0 items-center gap-2">
               <a href={`tel:+16475693231`} className="hidden sm:inline-flex">
-                <Button size="sm" variant="outline" className="border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground">
+                <Button
+                  size="sm"
+                  variant="outline"
+                  className="h-9 border-primary/30 px-3.5 text-primary hover:bg-primary hover:text-primary-foreground"
+                >
                   <Phone className="h-4 w-4" /> Call Now
                 </Button>
               </a>
