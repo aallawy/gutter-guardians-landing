@@ -97,10 +97,15 @@ export function Index() {
                 <div className="text-[11px] text-muted-foreground hidden sm:block">Toronto & GTA Gutter Experts</div>
               </div>
             </a>
-            <nav className="hidden md:flex items-center gap-5 text-sm font-medium text-secondary">
+            <nav className="hidden md:flex items-center gap-5 text-sm font-semibold">
               {navigationItems.map((item) => (
-                <a key={item.href} href={item.href} className="hover:text-primary transition-colors">
-                  {item.label}
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className="group relative flex flex-col items-center text-primary-deep transition-colors hover:text-primary"
+                >
+                  <span>{item.label}</span>
+                  <span className="mt-1 h-0.5 w-0 rounded-full bg-primary transition-all duration-300 group-hover:w-full" />
                 </a>
               ))}
             </nav>
@@ -139,7 +144,7 @@ export function Index() {
                 <a
                   key={item.href}
                   href={item.href}
-                  className="rounded-2xl px-4 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-muted"
+                  className="rounded-2xl px-4 py-3 text-sm font-semibold text-primary-deep transition-colors hover:bg-muted hover:text-primary"
                   onClick={handleMobileMenuClose}
                 >
                   {item.label}
