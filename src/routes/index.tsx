@@ -19,11 +19,13 @@ import gutterGuard from "@/assets/gutter-guard.jpg";
 import downspout from "@/assets/downspout.jpg";
 import cleaning from "@/assets/cleaning.jpg";
 import { QuoteForm } from "@/components/QuoteForm";
+import { toast } from "sonner";
 
 const WHATSAPP_URL = "https://wa.me/16475693231";
 const PHONE_DISPLAY = "+1 (647) 569-3231";
 const EMAIL = "allawysolutions@gmail.com";
-const GOOGLE_MAPS_EMBED_URL = "https://www.google.com/maps?q=Toronto,+Ontario,+Canada&z=9&output=embed";
+const GOOGLE_MAPS_EMBED_URL =
+  "https://www.google.com/maps?q=Toronto,+Ontario,+Canada&z=9&output=embed";
 
 function WhatsAppIcon({ className }: { className?: string }) {
   return (
@@ -61,15 +63,33 @@ export function Index() {
   ];
 
   const gallery = [
-    { src: beforeAfter, title: "Before & After Cleaning", caption: "Clogged to flowing in one visit" },
+    {
+      src: beforeAfter,
+      title: "Before & After Cleaning",
+      caption: "Clogged to flowing in one visit",
+    },
     { src: gutterGuard, title: "Premium Guard Install", caption: "Protection on grey siding" },
-    { src: downspout, title: "Downspout Replacement", caption: "Clean diversion away from brick foundation" },
+    {
+      src: downspout,
+      title: "Downspout Replacement",
+      caption: "Clean diversion away from brick foundation",
+    },
     { src: cleaning, title: "Professional Service", caption: "Insured technicians, every job" },
   ];
 
   const areas = [
-    "Toronto", "North York", "Scarborough", "Etobicoke", "Mississauga",
-    "Brampton", "Vaughan", "Markham", "Richmond Hill", "Oakville", "Burlington", "Pickering",
+    "Toronto",
+    "North York",
+    "Scarborough",
+    "Etobicoke",
+    "Mississauga",
+    "Brampton",
+    "Vaughan",
+    "Markham",
+    "Richmond Hill",
+    "Oakville",
+    "Burlington",
+    "Pickering",
   ];
 
   const navigationItems = [
@@ -83,8 +103,17 @@ export function Index() {
     setMobileMenuOpen(false);
   };
 
+  const handleEmailCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(EMAIL);
+      toast.success("Email address copied.");
+    } catch {
+      toast.error("Couldn't copy the email address.");
+    }
+  };
+
   return (
-      <div className="min-h-screen bg-background pb-[calc(6rem+env(safe-area-inset-bottom))] text-foreground font-sans antialiased md:pb-0">
+    <div className="min-h-screen bg-background pb-[calc(6rem+env(safe-area-inset-bottom))] text-foreground font-sans antialiased md:pb-0">
       {/* Header */}
       <header className="fixed top-4 inset-x-0 z-40 px-4">
         <div className="mx-auto w-full md:w-fit">
@@ -95,7 +124,9 @@ export function Index() {
             <a href="#top" className="flex shrink-0 items-center" onClick={handleMobileMenuClose}>
               <div className="leading-tight">
                 <div className="font-bold text-foreground">Allawy Solutions</div>
-                <div className="text-[11px] text-muted-foreground hidden sm:block">Toronto & GTA Gutter Experts</div>
+                <div className="text-[11px] text-muted-foreground hidden sm:block">
+                  Toronto & GTA Gutter Experts
+                </div>
               </div>
             </a>
             <nav className="hidden md:ml-3 md:flex items-center gap-5 text-sm font-semibold">
@@ -136,7 +167,9 @@ export function Index() {
           <div
             id="mobile-navigation"
             className={`overflow-hidden rounded-3xl border border-border bg-background/95 backdrop-blur-md transition-all duration-300 md:hidden ${
-              mobileMenuOpen ? "mt-3 max-h-96 p-4 opacity-100" : "mt-0 max-h-0 p-0 opacity-0 pointer-events-none"
+              mobileMenuOpen
+                ? "mt-3 max-h-96 p-4 opacity-100"
+                : "mt-0 max-h-0 p-0 opacity-0 pointer-events-none"
             }`}
             style={{ boxShadow: "var(--shadow-card)" }}
           >
@@ -171,7 +204,10 @@ export function Index() {
             height={1280}
             className="h-full w-full object-cover"
           />
-          <div className="absolute inset-0" style={{ background: "var(--gradient-hero)", opacity: 0.68 }} />
+          <div
+            className="absolute inset-0"
+            style={{ background: "var(--gradient-hero)", opacity: 0.68 }}
+          />
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-36 lg:py-44">
@@ -183,16 +219,25 @@ export function Index() {
               Expert Gutter Solutions for Toronto Homeowners.
             </h1>
             <p className="mt-6 text-lg sm:text-xl text-white/85 max-w-2xl leading-relaxed">
-              Protecting your home with precision cleaning, sealing, and premium guard installations.
+              Protecting your home with precision cleaning, sealing, and premium guard
+              installations.
             </p>
             <div className="mt-10 flex flex-col sm:flex-row gap-4">
               <a href="#contact">
-                <Button size="lg" className="h-14 px-8 text-base font-semibold bg-white text-primary hover:bg-white/90 shadow-elegant w-full sm:w-auto" style={{ boxShadow: "var(--shadow-elegant)" }}>
+                <Button
+                  size="lg"
+                  className="h-14 px-8 text-base font-semibold bg-white text-primary hover:bg-white/90 shadow-elegant w-full sm:w-auto"
+                  style={{ boxShadow: "var(--shadow-elegant)" }}
+                >
                   Request a Quote <ArrowRight className="h-5 w-5" />
                 </Button>
               </a>
               <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-                <Button size="lg" variant="outline" className="h-14 px-8 text-base font-semibold bg-transparent border-white/40 text-white hover:bg-white/10 w-full sm:w-auto">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="h-14 px-8 text-base font-semibold bg-transparent border-white/40 text-white hover:bg-white/10 w-full sm:w-auto"
+                >
                   <WhatsAppIcon className="h-5 w-5" /> Chat on WhatsApp
                 </Button>
               </a>
@@ -212,12 +257,15 @@ export function Index() {
       <section id="services" className="scroll-mt-24 bg-background py-20 md:scroll-mt-28 md:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mx-auto text-center">
-            <div className="text-sm font-semibold uppercase tracking-wider text-primary">Our Core Services</div>
+            <div className="text-sm font-semibold uppercase tracking-wider text-primary">
+              Our Core Services
+            </div>
             <h2 className="mt-3 text-3xl md:text-4xl font-bold text-foreground tracking-tight">
               Complete gutter care, done right
             </h2>
             <p className="mt-4 text-muted-foreground text-lg">
-              Three specialised services that keep water moving away from your home - the way it should.
+              Three specialised services that keep water moving away from your home - the way it
+              should.
             </p>
           </div>
 
@@ -228,14 +276,20 @@ export function Index() {
                 className="group relative bg-card rounded-2xl p-8 border border-border transition-all hover:-translate-y-1"
                 style={{ boxShadow: "var(--shadow-card)" }}
               >
-                <div className="h-14 w-14 rounded-xl flex items-center justify-center text-primary-foreground mb-6" style={{ background: "var(--gradient-cta)" }}>
+                <div
+                  className="h-14 w-14 rounded-xl flex items-center justify-center text-primary-foreground mb-6"
+                  style={{ background: "var(--gradient-cta)" }}
+                >
                   <s.icon className="h-7 w-7" />
                 </div>
                 <h3 className="text-xl font-bold text-foreground">{s.title}</h3>
                 <p className="mt-3 text-muted-foreground leading-relaxed">{s.description}</p>
                 <ul className="mt-6 space-y-2">
                   {s.points.map((p) => (
-                    <li key={p} className="flex items-center gap-2 text-sm text-secondary font-medium">
+                    <li
+                      key={p}
+                      className="flex items-center gap-2 text-sm text-secondary font-medium"
+                    >
                       <CheckCircle2 className="h-4 w-4 text-primary" /> {p}
                     </li>
                   ))}
@@ -250,12 +304,15 @@ export function Index() {
       <section id="gallery" className="scroll-mt-24 bg-muted py-20 md:scroll-mt-28 md:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mx-auto text-center">
-            <div className="text-sm font-semibold uppercase tracking-wider text-primary">Before & After</div>
+            <div className="text-sm font-semibold uppercase tracking-wider text-primary">
+              Before & After
+            </div>
             <h2 className="mt-3 text-3xl md:text-4xl font-bold text-foreground tracking-tight">
               Real results on real Toronto homes
             </h2>
             <p className="mt-4 text-muted-foreground text-lg">
-              Detached brick and siding houses across the GTA - restored, protected, and ready for every season.
+              Detached brick and siding houses across the GTA - restored, protected, and ready for
+              every season.
             </p>
           </div>
 
@@ -295,13 +352,15 @@ export function Index() {
       <section id="areas" className="scroll-mt-24 bg-background py-20 md:scroll-mt-28 md:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
           <div>
-            <div className="text-sm font-semibold uppercase tracking-wider text-primary">Service Area</div>
+            <div className="text-sm font-semibold uppercase tracking-wider text-primary">
+              Service Area
+            </div>
             <h2 className="mt-3 text-3xl md:text-4xl font-bold text-foreground tracking-tight">
               Proudly serving Toronto & the entire GTA
             </h2>
             <p className="mt-4 text-muted-foreground text-lg leading-relaxed">
-              From the lakeshore to the 905, our crews cover every corner of the Greater Toronto Area.
-              Same-week scheduling and on-time arrivals - guaranteed.
+              From the lakeshore to the 905, our crews cover every corner of the Greater Toronto
+              Area. Same-week scheduling and on-time arrivals - guaranteed.
             </p>
             <div className="mt-8 flex flex-wrap gap-2">
               {areas.map((a) => (
@@ -314,7 +373,10 @@ export function Index() {
               ))}
             </div>
           </div>
-          <div className="relative rounded-3xl overflow-hidden border border-border bg-card" style={{ boxShadow: "var(--shadow-elegant)" }}>
+          <div
+            className="relative rounded-3xl overflow-hidden border border-border bg-card"
+            style={{ boxShadow: "var(--shadow-elegant)" }}
+          >
             <div className="aspect-[4/3] relative">
               <iframe
                 id="service-area-map"
@@ -332,7 +394,9 @@ export function Index() {
                   </div>
                   <div className="leading-tight">
                     <div className="font-semibold">Toronto & GTA</div>
-                    <div className="text-sm text-secondary-foreground/80">Coverage radius 60+ km</div>
+                    <div className="text-sm text-secondary-foreground/80">
+                      Coverage radius 60+ km
+                    </div>
                   </div>
                 </div>
               </div>
@@ -342,14 +406,19 @@ export function Index() {
       </section>
 
       {/* Contact / Quote Form */}
-      <section id="contact" className="relative scroll-mt-24 overflow-hidden py-20 md:scroll-mt-28 md:py-28" style={{ background: "var(--gradient-hero)" }}>
+      <section
+        id="contact"
+        className="relative scroll-mt-24 overflow-hidden py-20 md:scroll-mt-28 md:py-28"
+        style={{ background: "var(--gradient-hero)" }}
+      >
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center text-white">
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight">
               Get your free quote today
             </h2>
             <p className="mt-5 text-lg md:text-xl text-white/85 max-w-2xl mx-auto">
-              Tell us about your home - we'll respond within 24 hours with honest pricing and a clear scope of work.
+              Tell us about your home - we'll respond within 24 hours with honest pricing and a
+              clear scope of work.
             </p>
           </div>
 
@@ -358,15 +427,28 @@ export function Index() {
           </div>
 
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6 text-white/90">
-            <a href={`mailto:${EMAIL}`} className="flex items-center gap-2 hover:text-white transition-colors">
+            <button
+              type="button"
+              className="flex items-center gap-2 border-0 bg-transparent p-0 text-left hover:text-white transition-colors"
+              onClick={handleEmailCopy}
+              aria-label="Copy company email address"
+            >
               <Mail className="h-5 w-5" /> {EMAIL}
-            </a>
+            </button>
             <span className="hidden sm:block text-white/30">|</span>
-            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-white transition-colors">
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 hover:text-white transition-colors"
+            >
               <WhatsAppIcon className="h-5 w-5" /> WhatsApp
             </a>
             <span className="hidden sm:block text-white/30">|</span>
-            <a href="tel:+16475693231" className="flex items-center gap-2 hover:text-white transition-colors">
+            <a
+              href="tel:+16475693231"
+              className="flex items-center gap-2 hover:text-white transition-colors"
+            >
               <Phone className="h-5 w-5" /> {PHONE_DISPLAY}
             </a>
           </div>
@@ -380,7 +462,9 @@ export function Index() {
             <span className="font-semibold">Allawy Solutions</span>
             <span className="text-white/60">- Toronto & GTA</span>
           </div>
-          <div className="text-white/70">(c) {new Date().getFullYear()} Allawy Solutions. All rights reserved.</div>
+          <div className="text-white/70">
+            (c) {new Date().getFullYear()} Allawy Solutions. All rights reserved.
+          </div>
         </div>
       </footer>
 
